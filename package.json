@@ -1,0 +1,17 @@
+{
+  "name": "cis4150-ai-test-study",
+  "private": true,
+  "version": "0.1.0",
+  "description": "CIS*4150 term project: do AI-generated tests protect software reliability? A case study on ShadowBoxer.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"tests-codex/**/*.test.{js,mjs}\" \"tests-human/**/*.test.{js,mjs}\" \"tests-ai/**/*.test.{js,mjs}\"",
+    "coverage": "node --test --experimental-test-coverage --test-coverage-include=\"frontend/src/training/**\" --test-coverage-include=\"frontend/src/lib/**\" \"tests-codex/**/*.test.{js,mjs}\" \"tests-human/**/*.test.{js,mjs}\" \"tests-ai/**/*.test.{js,mjs}\""
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "devDependencies": {
+    "fake-indexeddb": "6.2.5"
+  }
+}
