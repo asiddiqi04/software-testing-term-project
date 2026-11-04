@@ -60,6 +60,26 @@ original repository.
 
 ## Running
 
+### With Docker (recommended)
+
+Needs only [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+(or Docker Engine with the Compose plugin). It runs everything in a pinned
+Node 22.18.0 container, so everyone tests with the same Node version.
+
+```sh
+git clone <repo-url>
+cd cis4150-ai-test-study
+docker compose run --rm test        # install dependencies, then npm test
+docker compose run --rm coverage    # install dependencies, then npm run coverage
+```
+
+The repo is mounted into the container, so new or edited test files are
+picked up on the next run without rebuilding anything. Dependencies are
+kept in a Docker volume. Remove it with `docker compose down -v` to start
+fresh.
+
+### With Node installed locally
+
 Requires Node.js 22 (see `.nvmrc`).
 
 ```sh
