@@ -2,7 +2,7 @@
 
 Term project for **CIS\*4150 Software Reliability and Testing**, University of Guelph (Fall 2026).
 
-**Group members:** Adil Siddiqi, Caleb, Benjamin <!-- TODO: full names -->
+**Group members:** Adil Siddiqi, Caleb Friesen, Benjamin Gobraeil 
 
 ## Research question
 
@@ -99,7 +99,6 @@ no test imports does not appear in the report as 0%.
   (Oct 19, 2026). The files in `frontend/src/training/` and `frontend/src/lib/`
   are byte-identical to that commit. This repository starts a fresh history;
   no ShadowBoxer history was carried over.
-- **Authorship:** ShadowBoxer was built with OpenAI Codex. Codex also wrote
+- **Authorship:** ShadowBoxer was built by Adil Siddiqi with OpenAI Codex GPT-6-Astra. Codex also wrote
   all of the original tests. They were never edited or reviewed by a human
   before this study.
-- TODO(Adil): Codex model/version and dates
