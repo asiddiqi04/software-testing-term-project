@@ -1,0 +1,32 @@
+{
+  "name": "cis4150-ai-test-study",
+  "private": true,
+  "version": "0.1.0",
+  "description": "CIS*4150 term project: do AI-generated tests protect software reliability? A case study on ShadowBoxer.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"tests-codex/**/*.test.{js,mjs}\" \"tests-stripped/**/*.test.{js,mjs}\" \"tests-ai/**/*.test.{js,mjs}\"",
+    "test:codex": "node --test \"tests-codex/**/*.test.{js,mjs}\"",
+    "test:stripped": "node --test \"tests-stripped/**/*.test.{js,mjs}\"",
+    "coverage": "node --test --experimental-test-coverage --test-coverage-include=\"frontend/src/training/**\" --test-coverage-include=\"frontend/src/lib/**\" \"tests-codex/**/*.test.{js,mjs}\" \"tests-stripped/**/*.test.{js,mjs}\" \"tests-ai/**/*.test.{js,mjs}\"",
+    "coverage:codex": "node --test --experimental-test-coverage --test-coverage-include=\"frontend/src/training/**\" --test-coverage-include=\"frontend/src/lib/**\" \"tests-codex/**/*.test.{js,mjs}\"",
+    "coverage:stripped": "node --test --experimental-test-coverage --test-coverage-include=\"frontend/src/training/**\" --test-coverage-include=\"frontend/src/lib/**\" \"tests-stripped/**/*.test.{js,mjs}\"",
+    "make:stripped": "node scripts/make-stripped.mjs",
+    "mutation:codex": "SUITE=codex stryker run && node scripts/summarize-mutation.mjs codex",
+    "mutation:stripped": "SUITE=stripped stryker run && node scripts/summarize-mutation.mjs stripped",
+    "weak-checks": "node scripts/weak-checks.mjs codex",
+    "check-bugs": "node scripts/check-bugs.mjs",
+    "bugs": "node scripts/check-bugs.mjs && node scripts/run-bugs.mjs codex stripped",
+    "flakiness": "node scripts/flakiness.mjs codex 3",
+    "summary": "node scripts/summary.mjs",
+    "results": "node scripts/make-stripped.mjs && npm run -s test:codex > results/test-codex.txt && npm run -s test:stripped > results/test-stripped.txt && npm run -s coverage:codex > results/coverage-codex.txt && npm run -s coverage:stripped > results/coverage-stripped.txt && npm run -s bugs && npm run -s weak-checks > /dev/null && npm run -s flakiness && npm run -s summary",
+    "mutation": "npm run mutation:codex && npm run mutation:stripped"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "10.1.1",
+    "fake-indexeddb": "6.2.5"
+  }
+}

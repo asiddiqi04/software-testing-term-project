@@ -1,0 +1,11 @@
+node_modules/
+coverage/
+*.lcov
+.env
+.env.*
+.DS_Store
+*.log
+.vscode/
+.idea/
+.stryker-tmp/
+reports/
