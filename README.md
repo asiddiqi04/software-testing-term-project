@@ -25,3 +25,16 @@ Requires Node.js 22 (see `.nvmrc`).
 npm ci
 npm test
 ```
+
+## Mutation testing
+
+Mutation testing uses StrykerJS (`stryker.config.mjs`). Pick the suite with
+`SUITE`:
+
+```sh
+SUITE=codex npx stryker run       # Codex's original tests
+SUITE=stripped npx stryker run    # assertion-stripped copy
+```
+
+It mutates only `frontend/src/training/` and `frontend/src/lib/`, and writes
+its HTML and JSON reports to `results/`.
